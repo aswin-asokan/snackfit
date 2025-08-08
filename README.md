@@ -31,7 +31,12 @@ For Software:
 
 - Dart, Python
 - Flutter
-- [Libraries used]
+- Flutter dependencies: google_fonts, camera, file_picker, http, url_launcher, sqflite, path, intl, shared_preferences, path_provider
+
+```
+Python libraries: bcc, blinker, Brlapi, certifi, chardet, chrome-gnome-shell, click, colorama, command-not-found, cryptography, cupshelpers, dbus-python, defer, distro, gyp, hidpidaemon, httplib2, idna, importlib-metadata, jeepney, kernelstub, keyring, language-selector, launchpadlib, lazr.restfulclient, lazr.uri, louis, macaroonbakery, more-itertools, netaddr, netifaces, oauthlib, pop-transition, protobuf, pycairo, pycups, pydbus, Pygments, PyGObject, PyJWT, pymacaroons, PyNaCl, pyparsing, pyRFC3339, python-apt, python-debian, python-gnupg, python-xlib, pytz, pyxdg, PyYAML, repolib, repoman, requests, screen-resolution-extra, SecretStorage, sessioninstaller, six, systemd-python, ubuntu-drivers-common, ufw, urllib3, vboxapi, wadllib, xdg, xkit, zipp
+```
+
 - VS Code
 
 ### Implementation
@@ -40,63 +45,132 @@ For Software:
 
 # Installation
 
-[commands]
+**1. Clone the repository**
+
+```
+git clone git@github.com:aswin-asokan/snackfit.git
+cd snackfit
+```
+
+**2. Set up Python backend environment**
+
+```
+cd dataset
+python3 -m venv venv
+source venv/bin/activate    # On Windows use: venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+> Note: The backend server is not hosted currently, so it is not connected to the frontend app.
+
+**3. Set up Flutter frontend**
+
+```
+cd ../frontend
+flutter pub get
+```
+
+> Make sure you have Flutter SDK installed. See https://flutter.dev/docs/get-started/install
 
 # Run
 
-[commands]
+**Run Backend (locally for testing only)**
+
+```
+cd dataset
+source venv/bin/activate   # or activate venv on Windows
+python app.py
+```
+
+- Use this to test the custom dataset, fine-tuned model, and backend APIs locally.
+- Since backend is not hosted, frontend does not connect to it by default.
+
+**Run Frontend**
+
+```
+cd frontend
+flutter run
+```
+
+- The frontend currently uses Gemini for generating food suggestions instead of the backend.
+- You can run on emulator or connected device.
 
 ### Project Documentation
 
-For Software:
+**Overview**
+The Dress to Food Suggestion App recommends food items based on the user’s dress style, mood, occasion, and environment. It consists of:
+
+- A Flutter frontend for UI/UX, image capture, and displaying suggestions.
+- A Python backend with a PyTorch model trained on a custom food image dataset, using FAISS for similarity search.
+
+**Backend (dataset/ folder)**
+
+- Contains the training and inference code: train.py, predict.py, and app.py (Flask server).
+- Food classification model: food_classifier.pth.
+- Dataset folders with categorized food images under Dataset/.
+- FAISS index files and metadata stored in data/.
+- Backend is not hosted live and currently not connected to frontend.
+- Can be run locally to train models, test prediction, and experiment with the custom dataset.
+
+**Frontend (frontend/ folder)**
+
+- Flutter app structured with feature-based folders: camera, home, suggestion, settings, etc.
+- Uses Gemini to produce food suggestion results without relying on backend API.
+- Key screens:
+
+1. take_picture_screen.dart for capturing dress images.
+2. home.dart as main app screen.
+3. suggestions.dart to display recommendations.
+
+- Local data persistence handled via database_helper.dart.
+  For Software:
+
+**How it works now**
+
+- User captures or inputs dress-related data on frontend.
+- Frontend sends data to Gemini for suggestion generation.
+- Suggestions are displayed immediately within the app.
+- Backend code is provided for developers to run locally and further customize ML models and recommendation algorithms.
 
 # Screenshots (Add at least 3)
 
-![Screenshot1](Add screenshot 1 here with proper name)
-_Add caption explaining what this shows_
+### Screenshots
 
-![Screenshot2](Add screenshot 2 here with proper name)
-_Add caption explaining what this shows_
+![Home Screen](screenshots/screen1.png)  
+_Home Screen_
 
-![Screenshot3](Add screenshot 3 here with proper name)
-_Add caption explaining what this shows_
+![Suggestion 1](screenshots/screen2.png)  
+_Suggestion 1_
+
+![Suggestion 2](screenshots/screen3.png)  
+_Suggestion 2_
+
+![Near by](screenshots/screen4.png)  
+_Near by_
+
+![Camera](screenshots/screen4.png)  
+_Camera_
+
+![Settings](screenshots/screen4.png)  
+_Settings_
+
+![FAQ](screenshots/screen4.png)  
+_FAQ_
+
+![Backend](screenshots/screen4.png)  
+_Backend sample_
 
 # Diagrams
 
 ![Workflow](Add your workflow/architecture diagram here)
-_Add caption explaining your workflow_
+_This diagram outlines a dual-path process for image processing. After an image is uploaded, the system either sends it to Gemini, which provides a suggestion to be displayed on a mobile app, or it processes the image using a local backend, with the resulting suggestion shown on a browser._
 
-For Hardware:
+**Flow Explanation**
+The process begins when a user either uploads or captures an image. A decision is then made to use one of two different processing methods:
 
-# Schematic & Circuit
+- **Gemini Flow:** If Gemini is selected, the image is sent to the Gemini service. Gemini provides a suggestion, and the result is then displayed to the user on a mobile app. This pathway is suited for a scenario where the application is deployed on a mobile device and can leverage a cloud-based service for processing.
 
-![Circuit](Add your circuit diagram here)
-_Add caption explaining connections_
-
-![Schematic](Add your schematic diagram here)
-_Add caption explaining the schematic_
-
-# Build Photos
-
-![Components](Add photo of your components here)
-_List out all components shown_
-
-![Build](Add photos of build process here)
-_Explain the build steps_
-
-![Final](Add photo of final product here)
-_Explain the final build_
-
-### Project Demo
-
-# Video
-
-[Add your demo video link here]
-_Explain what the video demonstrates_
-
-# Additional Demos
-
-[Add any extra demo materials/links]
+- **Backend Flow:** Alternatively, the image can be sent to a separate backend, which runs locally. This backend processes the image and generates a suggestion, which is then displayed to the user on a local browser. This flow is ideal for situations where the backend cannot be hosted or needs to run independently on the user's machine, providing a solution for a web-based interface.
 
 ## Team Contributions
 
