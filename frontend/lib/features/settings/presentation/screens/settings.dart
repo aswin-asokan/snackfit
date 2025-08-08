@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:frontend/features/settings/presentation/widgets/about_section.dart';
+import 'package:frontend/features/settings/presentation/widgets/api_key_section.dart';
 import 'package:frontend/features/settings/presentation/widgets/help_section.dart';
 import 'package:frontend/shared/extensions/theme_extension.dart';
 
@@ -10,6 +11,7 @@ class Settings extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        scrolledUnderElevation: 0.0,
         leading: IconButton(
           onPressed: () {
             Navigator.pop(context);
@@ -22,9 +24,10 @@ class Settings extends StatelessWidget {
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
         child: Column(
+          spacing: 30,
           children: [
             const HelpSection(),
-            const SizedBox(height: 30),
+            ApiKeySection(),
             const AboutSection(),
           ],
         ),
