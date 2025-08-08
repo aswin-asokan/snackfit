@@ -136,34 +136,41 @@ The Dress to Food Suggestion App recommends food items based on the user’s dre
 
 ### Screenshots
 
-![Home Screen](screenshots/screen1.png)  
+![Home Screen](https://github.com/user-attachments/assets/6865ae7b-fbf0-4b2a-a99b-d3f18ca44699) 
+
 _Home Screen_
 
-![Suggestion 1](screenshots/screen2.png)  
+![Suggestion 1](https://github.com/user-attachments/assets/4c687cc3-a918-40b9-a64a-ee807d042169)
+
 _Suggestion 1_
 
-![Suggestion 2](screenshots/screen3.png)  
+![Suggestion 2](https://github.com/user-attachments/assets/ff406f0c-7b84-4159-9055-6f4f54f25079)
+
 _Suggestion 2_
 
-![Near by](screenshots/screen4.png)  
+![Near by](https://github.com/user-attachments/assets/94f3edd1-749b-4946-8d75-0f722c88848d)  
+
 _Near by_
 
-![Camera](screenshots/screen4.png)  
+![Camera](https://github.com/user-attachments/assets/fbf8cfcf-7575-43d4-a9b0-35e79ab941a8)  
 _Camera_
 
-![Settings](screenshots/screen4.png)  
+
+![Settings](https://github.com/user-attachments/assets/0eace827-5d95-4980-bc76-37b7cf1b9179)
+
+
 _Settings_
 
-![FAQ](screenshots/screen4.png)  
+![FAQ](https://github.com/user-attachments/assets/b54c2548-5270-4b17-a405-9209a79dd79e) 
+
 _FAQ_
 
-![Backend](screenshots/screen4.png)  
-_Backend sample_
 
 # Diagrams
 
-![Workflow](Add your workflow/architecture diagram here)
+![Workflow](https://github.com/user-attachments/assets/99582592-b9ce-425a-80c3-8a909cbaef21)
 _This diagram outlines a dual-path process for image processing. After an image is uploaded, the system either sends it to Gemini, which provides a suggestion to be displayed on a mobile app, or it processes the image using a local backend, with the resulting suggestion shown on a browser._
+
 
 **Flow Explanation**
 The process begins when a user either uploads or captures an image. A decision is then made to use one of two different processing methods:
