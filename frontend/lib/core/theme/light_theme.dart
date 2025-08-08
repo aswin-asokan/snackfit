@@ -3,7 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 ThemeData lightmode = ThemeData(
   useMaterial3: true,
-  colorScheme: ColorScheme.light(),
+  colorScheme: ColorScheme.light(
+    primary: const Color(0xffEB2933),
+    inversePrimary: const Color(0xffF5F0F0),
+    onPrimary: const Color(0xffffffff),
+    onPrimaryFixedVariant: const Color(0xff000000),
+  ),
   textTheme: TextTheme(
     titleLarge: GoogleFonts.plusJakartaSans(
       fontSize: 28,

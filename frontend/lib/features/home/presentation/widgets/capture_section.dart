@@ -1,9 +1,49 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:camera/camera.dart';
+import 'package:file_picker/file_picker.dart';
 import 'package:frontend/shared/extensions/theme_extension.dart';
 import 'package:frontend/shared/widgets/custom_button.dart';
+import 'package:frontend/features/home/presentation/screens/take_picture_screen.dart';
 
-class CaptureSection extends StatelessWidget {
+class CaptureSection extends StatefulWidget {
   const CaptureSection({super.key});
+
+  @override
+  State<CaptureSection> createState() => _CaptureSectionState();
+}
+
+class _CaptureSectionState extends State<CaptureSection> {
+  File? _imageFile;
+
+  Future<void> _pickFromGallery() async {
+    FilePickerResult? result = await FilePicker.platform.pickFiles(
+      type: FileType.image,
+    );
+    if (result != null && result.files.single.path != null) {
+      setState(() {
+        _imageFile = File(result.files.single.path!);
+      });
+    }
+  }
+
+  Future<void> _captureFromCamera() async {
+    final cameras = await availableCameras();
+    final firstCamera = cameras.first;
+
+    final imagePath = await Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => TakePictureScreen(camera: firstCamera),
+      ),
+    );
+
+    if (imagePath != null) {
+      setState(() {
+        _imageFile = File(imagePath);
+      });
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +63,18 @@ class CaptureSection extends StatelessWidget {
           ],
         ),
         CustomButton(
-          bgColor: const Color(0xffEB2933),
-          labelColor: const Color(0xffffffff),
+          bgColor: context.colorScheme.primary,
+          labelColor: context.colorScheme.onPrimary,
           label: "Upload a Photo",
-          onPress: () {},
+          onPress: _pickFromGallery,
         ),
         CustomButton(
-          bgColor: const Color(0xffF5F0F0),
-          labelColor: const Color(0xff000000),
+          bgColor: context.colorScheme.inversePrimary,
+          labelColor: context.colorScheme.onPrimaryFixedVariant,
           label: "Capture a Photo",
-          onPress: () {},
+          onPress: _captureFromCamera,
         ),
+        if (_imageFile != null) Image.file(_imageFile!, height: 200),
       ],
     );
   }
