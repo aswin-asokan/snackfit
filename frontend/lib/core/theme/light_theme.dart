@@ -14,6 +14,10 @@ ThemeData lightmode = ThemeData(
       fontSize: 28,
       fontWeight: FontWeight.bold,
     ),
+    titleSmall: GoogleFonts.plusJakartaSans(
+      fontSize: 18,
+      fontWeight: FontWeight.w600,
+    ),
     displayLarge: GoogleFonts.plusJakartaSans(
       fontSize: 18,
       fontWeight: FontWeight.bold,

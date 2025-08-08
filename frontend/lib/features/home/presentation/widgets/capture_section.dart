@@ -4,26 +4,28 @@ import 'package:camera/camera.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:frontend/shared/extensions/theme_extension.dart';
 import 'package:frontend/shared/widgets/custom_button.dart';
-import 'package:frontend/features/home/presentation/screens/take_picture_screen.dart';
+import 'package:frontend/features/camera/presentation/screens/take_picture_screen.dart';
 
 class CaptureSection extends StatefulWidget {
-  const CaptureSection({super.key});
+  final void Function(File image) onImageCaptured; // callback to parent
+
+  const CaptureSection({super.key, required this.onImageCaptured});
 
   @override
   State<CaptureSection> createState() => _CaptureSectionState();
 }
 
 class _CaptureSectionState extends State<CaptureSection> {
-  File? _imageFile;
+  File? imageFile;
 
   Future<void> _pickFromGallery() async {
     FilePickerResult? result = await FilePicker.platform.pickFiles(
       type: FileType.image,
     );
     if (result != null && result.files.single.path != null) {
-      setState(() {
-        _imageFile = File(result.files.single.path!);
-      });
+      final file = File(result.files.single.path!);
+      setState(() => imageFile = file);
+      widget.onImageCaptured(file); // send to parent
     }
   }
 
@@ -39,9 +41,9 @@ class _CaptureSectionState extends State<CaptureSection> {
     );
 
     if (imagePath != null) {
-      setState(() {
-        _imageFile = File(imagePath);
-      });
+      final file = File(imagePath);
+      setState(() => imageFile = file);
+      widget.onImageCaptured(file); // send to parent
     }
   }
 
@@ -74,7 +76,6 @@ class _CaptureSectionState extends State<CaptureSection> {
           label: "Capture a Photo",
           onPress: _captureFromCamera,
         ),
-        if (_imageFile != null) Image.file(_imageFile!, height: 200),
       ],
     );
   }
