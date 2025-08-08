@@ -29,15 +29,15 @@ We use AI fashion-to-food matching to decide if you’re rocking “Puttu Kadala
 
 For Software:
 
-- Dart, Python
-- Flutter
+- Languages used: Dart, Python
+- Framework used: Flutter
 - Flutter dependencies: google_fonts, camera, file_picker, http, url_launcher, sqflite, path, intl, shared_preferences, path_provider
 
 ```
 Python libraries: bcc, blinker, Brlapi, certifi, chardet, chrome-gnome-shell, click, colorama, command-not-found, cryptography, cupshelpers, dbus-python, defer, distro, gyp, hidpidaemon, httplib2, idna, importlib-metadata, jeepney, kernelstub, keyring, language-selector, launchpadlib, lazr.restfulclient, lazr.uri, louis, macaroonbakery, more-itertools, netaddr, netifaces, oauthlib, pop-transition, protobuf, pycairo, pycups, pydbus, Pygments, PyGObject, PyJWT, pymacaroons, PyNaCl, pyparsing, pyRFC3339, python-apt, python-debian, python-gnupg, python-xlib, pytz, pyxdg, PyYAML, repolib, repoman, requests, screen-resolution-extra, SecretStorage, sessioninstaller, six, systemd-python, ubuntu-drivers-common, ufw, urllib3, vboxapi, wadllib, xdg, xkit, zipp
 ```
 
-- VS Code
+- Tools used: VS Code
 
 ### Implementation
 
@@ -136,35 +136,15 @@ The Dress to Food Suggestion App recommends food items based on the user’s dre
 
 ### Screenshots
 
-![Home Screen](https://github.com/user-attachments/assets/6865ae7b-fbf0-4b2a-a99b-d3f18ca44699) 
-
-_Home Screen_
-
-![Suggestion 1](https://github.com/user-attachments/assets/4c687cc3-a918-40b9-a64a-ee807d042169)
-
-_Suggestion 1_
-
-![Suggestion 2](https://github.com/user-attachments/assets/ff406f0c-7b84-4159-9055-6f4f54f25079)
-
-_Suggestion 2_
-
-![Near by](https://github.com/user-attachments/assets/94f3edd1-749b-4946-8d75-0f722c88848d)  
-
-_Near by_
-
-![Camera](https://github.com/user-attachments/assets/fbf8cfcf-7575-43d4-a9b0-35e79ab941a8)  
-_Camera_
+| ![Home Screen](https://github.com/user-attachments/assets/6865ae7b-fbf0-4b2a-a99b-d3f18ca44699) <br> _Home Screen_ | ![Suggestion 1](https://github.com/user-attachments/assets/4c687cc3-a918-40b9-a64a-ee807d042169) <br> _Suggestion 1_ | ![Suggestion 2](https://github.com/user-attachments/assets/ff406f0c-7b84-4159-9055-6f4f54f25079) <br> _Suggestion 2_ |
+|----------------------------------------------|-------------------------------------------|---------------------------------------------|
+| ![Near by](https://github.com/user-attachments/assets/94f3edd1-749b-4946-8d75-0f722c88848d) <br> _Near by_ | ![Camera](https://github.com/user-attachments/assets/fbf8cfcf-7575-43d4-a9b0-35e79ab941a8) <br> _Camera_ | ![Settings](https://github.com/user-attachments/assets/0eace827-5d95-4980-bc76-37b7cf1b9179) <br> _Settings_ |
+| ![FAQ](https://github.com/user-attachments/assets/b54c2548-5270-4b17-a405-9209a79dd79e) <br> _FAQ_ |  |  |
 
 
-![Settings](https://github.com/user-attachments/assets/0eace827-5d95-4980-bc76-37b7cf1b9179)
+![Backend](https://github.com/user-attachments/assets/0b53fe8b-ae0c-4cac-8a56-3dc8c62cc128) 
 
-
-_Settings_
-
-![FAQ](https://github.com/user-attachments/assets/b54c2548-5270-4b17-a405-9209a79dd79e) 
-
-_FAQ_
-
+_Backend_
 
 # Diagrams
 
