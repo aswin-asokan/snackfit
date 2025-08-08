@@ -41,8 +41,6 @@ Python libraries: bcc, blinker, Brlapi, certifi, chardet, chrome-gnome-shell, cl
 
 ### Implementation
 
-For Software:
-
 # Installation
 
 **1. Clone the repository**
@@ -133,8 +131,6 @@ The Dress to Food Suggestion App recommends food items based on the user’s dre
 - Backend code is provided for developers to run locally and further customize ML models and recommendation algorithms.
 
 # Screenshots
-
-### Screenshots
 
 | ![Home Screen](https://github.com/user-attachments/assets/6865ae7b-fbf0-4b2a-a99b-d3f18ca44699) <br> _Home Screen_ | ![Suggestion 1](https://github.com/user-attachments/assets/4c687cc3-a918-40b9-a64a-ee807d042169) <br> _Suggestion 1_ | ![Suggestion 2](https://github.com/user-attachments/assets/ff406f0c-7b84-4159-9055-6f4f54f25079) <br> _Suggestion 2_ |
 |----------------------------------------------|-------------------------------------------|---------------------------------------------|
