@@ -25,7 +25,7 @@ class _SuggestionsState extends State<Suggestions> {
   String? apiKey;
 
   static const String geminiEndpoint =
-      "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent";
+      "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent";
 
   @override
   void initState() {
@@ -79,9 +79,15 @@ Then suggest a fun food comparison in the format:
 
       if (response.statusCode == 200) {
         final data = jsonDecode(response.body);
-        final text = data["candidates"]?[0]?["content"]?["parts"]?[0]?["text"];
+        String rawText =
+            data["candidates"]?[0]?["content"]?["parts"]?[0]?["text"] ?? "";
 
-        final rawSuggestion = text?.trim() ?? "No suggestion found.";
+        // Remove markdown bold (**)
+        rawText = rawText.replaceAll('**', '');
+
+        final rawSuggestion = rawText.trim().isNotEmpty
+            ? rawText.trim()
+            : "No suggestion found.";
         final extractedName = extractFoodName(rawSuggestion);
         final formattedName = extractedName != null
             ? toTitleCase(extractedName)
@@ -111,7 +117,6 @@ Then suggest a fun food comparison in the format:
     }
   }
 
-  // Converts a string to Title Case (e.g., "strawberry-rosewater macaron" -> "Strawberry-Rosewater Macaron")
   String toTitleCase(String text) {
     if (text.isEmpty) {
       return '';
@@ -179,7 +184,6 @@ Then suggest a fun food comparison in the format:
 
                     const SizedBox(height: 12),
 
-                    // Display captured image with full width & rounded corners
                     ClipRRect(
                       borderRadius: BorderRadius.circular(16),
                       child: Image.file(
