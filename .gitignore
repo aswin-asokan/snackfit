@@ -53,3 +53,10 @@ frontend/pubspec.lock
 
 # Misc
 .DS_Store
+
+
+#model
+venv/
+dataset/Dataset/
+dataset/evaluation/
+dataset/food-cl/
