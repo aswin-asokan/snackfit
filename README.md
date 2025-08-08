@@ -132,7 +132,7 @@ The Dress to Food Suggestion App recommends food items based on the user’s dre
 - Suggestions are displayed immediately within the app.
 - Backend code is provided for developers to run locally and further customize ML models and recommendation algorithms.
 
-# Screenshots (Add at least 3)
+# Screenshots
 
 ### Screenshots
 
