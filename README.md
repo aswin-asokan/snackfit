@@ -123,6 +123,91 @@ The Dress to Food Suggestion App recommends food items based on the user’s dre
 - Local data persistence handled via database_helper.dart.
   For Software:
 
+**Project Structure**
+```
+.
+├── dataset/
+│   ├── data/
+│   │   ├── faiss.index
+│   │   ├── food_features.pkl
+│   │   └── meta.pkl
+│   ├── Dataset/
+│   │   ├── avial
+│   │   ├── Biriyani
+│   │   ├── Burger
+│   │   ├── chocobar
+│   │   ├── fried rice
+│   │   ├── gulab jamun
+│   │   ├── ice cream
+│   │   ├── Noodles
+│   │   ├── Pasta
+│   │   └── puttu and kadala
+│   ├── scripts
+│   ├── server/
+│   │   ├── __pychace__
+│   │   ├── static
+│   │   ├── templates
+│   │   └── api
+│   ├── app.py
+│   ├── check.py
+│   ├── food_classifier.pth
+│   ├── predict.py
+│   └── train.py
+├── frontend/
+│   ├── android
+│   ├── build
+│   ├── ios
+│   ├── lib/
+│   │   ├── core/
+│   │   │   └── theme/
+│   │   │       └── light_theme.dart
+│   │   ├── features/
+│   │   │   ├── camera/
+│   │   │   │   └── presentation/
+│   │   │   │       └── screens/
+│   │   │   │           └── take_picture_screen.dart
+│   │   │   ├── home/
+│   │   │   │   └── presentation/
+│   │   │   │       ├── screens/
+│   │   │   │       │   └── home.dart
+│   │   │   │       └── widgets/
+│   │   │   │           ├── capture_section.dart
+│   │   │   │           └── suggestion_card.dart
+│   │   │   ├── settings/
+│   │   │   │   └── presentation/
+│   │   │   │       ├── screens/
+│   │   │   │       │   ├── faq.dart
+│   │   │   │       │   └── settings.dart
+│   │   │   │       └── widgets/
+│   │   │   │           ├── about_section.dart
+│   │   │   │           ├── api_key_section.dart
+│   │   │   │           ├── help_section.dart
+│   │   │   │           └── settings_item.dart
+│   │   │   └── suggestion/
+│   │   │       ├── models/
+│   │   │       │   └── suggestion_model.dart
+│   │   │       ├── presentation/
+│   │   │       │   ├── screens/
+│   │   │       │   │   └── suggestions.dart
+│   │   │       │   └── widgets
+│   │   │       └── services/
+│   │   │           └── database_helper.dart
+│   │   ├── shared/
+│   │   │   ├── extensions/
+│   │   │   │   └── theme_extensions.dart
+│   │   │   └── widgets/
+│   │   │       └── custom_button.dart
+│   │   └── main.dart
+│   ├── linux
+│   ├── macos
+│   ├── test
+│   ├── web
+│   ├── windows
+│   └── pubspec.yaml
+├── .gitignore
+└── README.md
+```
+
 **How it works now**
 
 - User captures or inputs dress-related data on frontend.
