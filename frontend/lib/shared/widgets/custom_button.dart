@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
       width: double.infinity,
       height: 60,
       child: ElevatedButton(
-        onPressed: () {},
+        onPressed: onPress,
         style: ButtonStyle(
           shape: WidgetStatePropertyAll(
             RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
